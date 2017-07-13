@@ -1,1 +1,7 @@
 Please save your output images to this folder and include a description in your README of what each image shows.
+binary_combo_example.jpg: example after binary threshold to get lane pixels
+color_fit_lines.jpg:      fit a second order polynomial to each lane line
+example_output.jpg:       final output
+undistorted_images.jpg:   an example of a distortion-corrected image
+undistorted_output.png:   example of undistorted chessboard
+warped_straight_lines.jpg: bird-view straight lines
