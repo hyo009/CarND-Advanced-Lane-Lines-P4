@@ -28,30 +28,38 @@ You're reading it!
 * Generate object points
 * Find image points with cv2.findChessboardCorners
 * Calibrate the camera and obtain distortion coefficients with cv2.calibrateCamera
-![alt text](https://github.com/hyo009/CarND-Behavioral-Cloning-P3/blob/master/images/lcr.png?raw=true "left, center and right images")
+![alt text](https://github.com/hyo009/CarND-Advanced-Lane-Lines-P4/blob/master/output_images/undistorted_output.png)
 
 ### Pipeline (single images)
 
 #### 1. Provide an example of a distortion-corrected image.
 Apply cv2.undistort with the camera matrix and distortion coefficients obtained.
-![alt text](https://github.com/hyo009/CarND-Advanced-Lane-Lines-P4/blob/master/output_images/undistorted_output.png)
+![alt text](https://github.com/hyo009/CarND-Advanced-Lane-Lines-P4/blob/master/output_images/undistorted_images.jpg)
 #### 2. Describe how (and identify where in your code) you used color transforms, gradients or other methods to create a thresholded binary image.  Provide an example of a binary image result.
 I used a combination of color and gradient thresholds to generate a binary image.
 
 First of all, I defined a very simple method thresh() which can be used to apply color threshold in any color space. Then I defined colorthresh() function which takes the red-channel component of image from RGB color space and S-channel component from HLS space. The lanes were detected efficiently in R channel as well as S channel so I chose to combine the pixels detected in both of this channels' thresholds by applying a logical OR operation.
 
 **S-channel threshold**
+
 ![alt text](https://github.com/hyo009/CarND-Advanced-Lane-Lines-P4/blob/master/output_images/hls.png)
+
 **Red-channel threshold**
+
 ![alt text](https://github.com/hyo009/CarND-Advanced-Lane-Lines-P4/blob/master/output_images/red.png)
+
 **combine color threshold**
+
 ![alt text](https://github.com/hyo009/CarND-Advanced-Lane-Lines-P4/blob/master/output_images/colorthresh.png)
 
 The binary file received as output of colorthresh() was then used as an input to Gradient Thresholding method gradthresh(). This method in turns calls different Gradient based thresholding methods which computes gradients along X dimension, Y dimension, Magnitude gradient and Direction Gradient. The various threshold values, kernal size used in the project were somewhat taken from classroom videos plus trial and error.
 
 **grad threshold**
+
 ![alt text](https://github.com/hyo009/CarND-Advanced-Lane-Lines-P4/blob/master/output_images/gradthresh.png)
+
 **final threshold**
+
 ![alt text](https://github.com/hyo009/CarND-Advanced-Lane-Lines-P4/blob/master/output_images/combinethresh.png)
 
 #### 3. Describe how (and identify where in your code) you performed a perspective transform and provide an example of a transformed image.
