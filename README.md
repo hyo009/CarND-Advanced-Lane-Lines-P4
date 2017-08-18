@@ -47,12 +47,14 @@ The binary file received as output of colorthresh() was then used as an input to
 * Select the region of interest in source images.
 * Set the destination region of transformed images
 * Source points and destination points are:
+
 | Source        | Destination   |
 |:-------------:|:-------------:|
-| 585, 460      | 320, 0        |
-| 203, 720      | 320, 720      |
-| 1127, 720     | 960, 720      |
-| 695, 460      | 960, 0        |
+| 547, 480      | 250, 0        |
+| 250, 675      | 250, 675      |
+| 1030, 675     | 1030, 675     |
+| 733, 480      | 1030, 0       |
+
 * Code the source and destination polygon coordinates and obtain the matrix M that maps them onto each other with cv2.getPerspective
 * Warp the image to the new birds-eye-view perspective with cv2.warpPerspective and the perspective transform matrix M we just obtained
 * Examples of source images and transformed images
